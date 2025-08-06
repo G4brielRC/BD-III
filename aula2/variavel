@@ -1,0 +1,3 @@
+SET @resultado = 0;
+CALL proc_total_clientes('Guarulhos', nome@resultado);
+select @resultado;
