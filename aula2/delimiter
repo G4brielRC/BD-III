@@ -1,0 +1,34 @@
+DELIMITER //
+
+	/*CREATE PROCEDURE proc_listar_cidade(
+		IN cidade_param VARCHAR (100)
+    )
+		begin
+			select*from clientes where cidade = cidade_param;
+		end //*/
+	
+    /*CREATE PROCEDURE proc_listar_nome(
+		IN nome_param VARCHAR (100)
+	)
+		begin
+			select*from clientes where nome = nome_param;
+		end //*/
+        
+    /*CREATE PROCEDURE proc_total_clientes(
+		IN cidade_nome VARCHAR(100),
+        OUT total INT
+	)
+		begin
+			select count(*) into total from clientes
+            where cidade = cidade_nome;
+		end //*/
+        
+	CREATE PROCEDURE proc_total_clientes_cidade(
+		IN cidade_nome VARCHAR(100),
+        OUT nomes INT,
+		OUT cidades INT
+	)
+		begin
+			select nome into nomes from clientes
+		end;
+DELIMITER ;
