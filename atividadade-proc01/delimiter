@@ -1,0 +1,21 @@
+DELIMITER //
+
+CREATE PROCEDURE inserir_cliente(
+    IN p_nome VARCHAR(100),
+    IN p_cpf VARCHAR(15),
+    IN p_endereco VARCHAR(100),
+    IN p_celular VARCHAR(12),
+    IN p_data_nasc DATE
+)
+BEGIN
+    START TRANSACTION;
+    
+    INSERT INTO cad_cli (nome, cpf, endereco, celular, data_nasc)
+    VALUES (p_nome, p_cpf, p_endereco, p_celular, p_data_nasc);
+    
+    COMMIT;
+    
+    SELECT * FROM cad_cli;
+END //
+
+DELIMITER ;
