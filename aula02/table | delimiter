@@ -1,0 +1,46 @@
+CREATE DATABASE escola;
+
+use escola;
+
+create table turmas (
+id INT AUTO_INCREMENT PRIMARY KEY,
+turma VARCHAR(100),
+periodo VARCHAR(100)
+); 
+
+create table alunos (
+id INT AUTO_INCREMENT PRIMARY KEY,
+nome VARCHAR(100),
+idade INT,
+id_turma INT,
+FOREIGN KEY(id_turma) REFERENCES turmas(id)
+);
+
+insert into turmas (turma, periodo) VALUES
+('3ADS', 'NOTURNO'),
+('2ADS', 'DIURNO'),
+('1ADS', 'DIURNO');
+
+insert into alunos (nome, idade, id_turma) VALUES
+('Gabriel', 17, 1),
+('Pedro', 24, 2),
+('João', 18, 3),
+('Nicolas', 18, 1);
+
+
+DELIMITER // 
+
+CREATE PROCEDURE PROC_ATV(
+)
+
+BEGIN 
+
+	SELECT a.nome
+	FROM alunos a 
+	join turmas t ON a.id_turma = t.id
+	where t.turma = '3ADS' and t.periodo = 'NOTURNO';
+
+end //
+    
+    DELIMITER ;
+
