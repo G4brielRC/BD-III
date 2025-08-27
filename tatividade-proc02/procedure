@@ -1,0 +1,31 @@
+DELIMITER //
+
+
+CREATE PROCEDURE inserir_turma(
+    IN p_turma VARCHAR(255)
+)
+BEGIN
+    INSERT INTO turmas (turma) VALUES (p_turma);
+END //
+
+
+CREATE PROCEDURE inserir_aluno(
+    IN p_nome_aluno VARCHAR(255),
+    IN p_idade_aluno INT,
+    IN p_id_turma INT
+)
+BEGIN
+    INSERT INTO alunos (nome, idade, id_turma) VALUES (p_nome_aluno, p_idade_aluno, p_id_turma);
+END //
+
+
+CREATE PROCEDURE inserir_nota(
+    IN p_id_turma INT,
+    IN p_id_aluno INT,
+    IN p_nota DECIMAL(5,2)
+)
+BEGIN
+    INSERT INTO boletim (id_turma, id_aluno, nota) VALUES (p_id_turma, p_id_aluno, p_nota);
+END //
+
+DELIMITER ;
