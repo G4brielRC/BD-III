@@ -1,15 +1,10 @@
 CALL inserir_turma('3ds');
-
 CALL inserir_turma('2ds');
-
 CALL inserir_turma('1ds');
 
 CALL inserir_aluno('João da Silva', 17, 1);
-
 CALL inserir_aluno('Maria Oliveira', 18, 1);
-
 CALL inserir_aluno('Pedro Souza', 17, 2);
-
 CALL inserir_aluno('Carlos Rocha', 16, 3);
 
 CALL inserir_nota(1, 1, 8.5);
@@ -17,16 +12,8 @@ CALL inserir_nota(1, 2, 9.0);
 CALL inserir_nota(2, 3, 7.5);
 CALL inserir_nota(3, 4, 6.0);
 
+CALL buscar_nota_por_aluno(1, @nome, @nota);
+SELECT @nome AS nome_aluno, @nota AS nota_do_aluno;
 
-SELECT
-    t.turma,
-    a.nome AS nome_aluno,
-    b.nota
-FROM
-    boletim b
-JOIN
-    alunos a ON b.id_aluno = a.id_aluno
-JOIN
-    turmas t ON b.id_turma = t.id
-WHERE
-    t.turma = '3ds';
+CALL buscar_nota_por_aluno(3, @nome, @nota);
+SELECT @nome AS nome_aluno, @nota AS nota_do_aluno;
