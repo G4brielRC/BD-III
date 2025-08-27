@@ -1,0 +1,32 @@
+
+CREATE DATABASE IF NOT EXISTS ESCOLA;
+USE ESCOLA;
+
+
+CREATE TABLE IF NOT EXISTS turmas (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    turma VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS alunos (
+    id_aluno INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(255) NOT NULL,
+    idade INT,
+    id_turma INT,
+    FOREIGN KEY (id_turma) REFERENCES turmas(id)
+);
+
+CREATE TABLE IF NOT EXISTS boletim (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    id_turma INT,
+    id_aluno INT,
+    nota DECIMAL(5,2),
+    FOREIGN KEY (id_turma) REFERENCES turmas(id),
+    FOREIGN KEY (id_aluno) REFERENCES alunos(id_aluno)
+);
+
+
+
+
+
+
